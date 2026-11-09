@@ -55,7 +55,7 @@ No external libraries, frameworks, APIs, or backend services are required.
 
 ![NetCalc Interface](screenshots/netcalc-overview.png)
 
-### Subnet Calculation — /30
+### Subnet Calculation — /24
 
 ![Subnet /30](screenshots/subnet-30.png)
 
