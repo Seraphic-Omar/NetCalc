@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NetCalc — IPv4 Subnet Calculator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <header>
+      <p class="eyebrow">Networking utility</p>
+      <h1>NetCalc</h1>
+      <p class="lede">Calculate an IPv4 subnet from an address and a CIDR prefix. Everything runs in the browser.</p>
+    </header>
+
+    <form id="calc-form" novalidate>
+      <div class="fields">
+        <label>
+          IPv4 address
+          <input id="ip" name="ip" type="text" inputmode="decimal" autocomplete="off" spellcheck="false" placeholder="192.168.1.10" aria-describedby="error">
+        </label>
+        <label>
+          CIDR prefix
+          <span class="prefix-wrap">
+            <span class="slash" aria-hidden="true">/</span>
+            <input id="cidr" name="cidr" type="text" inputmode="numeric" autocomplete="off" spellcheck="false" placeholder="24" maxlength="2" aria-describedby="error">
+          </span>
+        </label>
+      </div>
+      <button type="submit">Calculate</button>
+    </form>
+
+    <p id="error" class="error" role="alert" hidden></p>
+
+    <section class="examples" aria-label="Example inputs">
+      <h2>Examples</h2>
+      <div class="example-list">
+        <button type="button" data-ip="192.168.1.10" data-cidr="24">192.168.1.10/24</button>
+        <button type="button" data-ip="10.20.30.40" data-cidr="22">10.20.30.40/22</button>
+        <button type="button" data-ip="172.16.5.20" data-cidr="30">172.16.5.20/30</button>
+        <button type="button" data-ip="192.168.0.1" data-cidr="31">192.168.0.1/31</button>
+        <button type="button" data-ip="10.1.1.1" data-cidr="32">10.1.1.1/32</button>
+      </div>
+    </section>
+
+    <section id="results" class="results" hidden>
+      <h2>Result <span id="result-cidr"></span></h2>
+      <dl>
+        <div>
+          <dt>Subnet mask</dt>
+          <dd id="mask"></dd>
+        </div>
+        <div>
+          <dt>Network address</dt>
+          <dd id="network"></dd>
+        </div>
+        <div>
+          <dt>Broadcast address</dt>
+          <dd id="broadcast"></dd>
+        </div>
+        <div>
+          <dt>First usable IP</dt>
+          <dd id="first"></dd>
+        </div>
+        <div>
+          <dt>Last usable IP</dt>
+          <dd id="last"></dd>
+        </div>
+        <div>
+          <dt>Total addresses</dt>
+          <dd id="total"></dd>
+        </div>
+        <div>
+          <dt>Usable hosts</dt>
+          <dd id="usable"></dd>
+        </div>
+      </dl>
+      <p id="note" class="note" hidden></p>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
